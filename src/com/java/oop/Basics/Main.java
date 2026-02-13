@@ -1,12 +1,15 @@
-package com.java.oop;
+package com.java.oop.Basics;
 
 public class Main {
     public static void main(String[] args) {
         Product product1;
         Product product2;
-        product1 = new Product(1, 40000, 10, 42000, "LG", 10f, 540f, 453f, 3453f, 3453f, 45f, 34f, 34f, 3f, 342f, 43f);
+        product1 = new Product(1, 40000,42000f,10,"LG",2.5f,2.5f,100);
         product1.displayProduct();
-        product2 = new Product(2, 50000, 20, 55000, "samsung", 10f, 540f, 453f, 3453f, 3453f, 45f, 34f, 34f, 3f, 342f, 43f);
+
+        Product product3;
+//        product3=new Product();
+//        product2 = new Product(2, 50000, 20, 55000, "samsung", 10f, 540f, 453f, 3453f, 3453f, 45f, 34f, 34f, 3f, 342f, 43f);
 //        System.out.printf("%-5d  %-15d  %-10d  %-15d %10s%n", "id", "productPrice", "quantity", "max_Retail_Price","productName");
 //        System.out.println("----------------------------------------------------");
 //        System.out.printf("%-5d   %-5d           %-5d        %-5d%n",product1.id,product1.productPrice,product1.quantity,product1.max_Retail_Price);
