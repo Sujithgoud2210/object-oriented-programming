@@ -1,6 +1,5 @@
 package com.java.oop.collections;
 
-import java.util.HashSet;
 import java.util.Objects;
 
 public class Product {
