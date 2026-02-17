@@ -2,6 +2,7 @@ package com.java.oop.stringassignment;
 
 import java.util.HashSet;
 import java.util.Iterator;
+import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
@@ -25,6 +26,26 @@ public class Main {
             Product product=productIterator.next();
             productService.displayProductDetails(product);
             System.out.println("-----------------------------");
+            String[] ordersData = {
+                    "order-101,ORDERED",
+                    "order-102,SHIPPED",
+                    "order-103,DELIVERED"
+            };
+
+            OrderService orderService = new OrderService();
+            orderService.getOrders(ordersData);
+
+            Scanner sc = new Scanner(System.in);
+
+            System.out.println("Enter Order Status (ORDERED/SHIPPED/DELIVERED): ");
+            String status = sc.nextLine();
+
+            HashSet<Orders> result = orderService.ordersByState(status);
+
+            for (Orders order : result) {
+                System.out.println("Order Id : " + order.getId());
+                System.out.println("Status : " + order.getStatus());
+            }
 
         }
     }
