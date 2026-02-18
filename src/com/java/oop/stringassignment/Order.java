@@ -3,8 +3,9 @@ package com.java.oop.stringassignment;
 import java.util.HashSet;
 import java.util.Objects;
 
-public class Orders {
+public class Order {
     private String id;
+    private String customerName;
     private HashSet<Product> productHashSet;
     private String status;
 
@@ -12,7 +13,7 @@ public class Orders {
         return productHashSet.toArray(new Product[0]);
     }
 
-    public Orders() {
+    public Order() {
     }
 
     public String getId() {
@@ -21,6 +22,14 @@ public class Orders {
 
     public void setId(String id) {
         this.id = id;
+    }
+
+    public String getCustomerName() {
+        return customerName;
+    }
+
+    public void setCustomerName(String customerName) {
+        this.customerName = customerName;
     }
 
     public HashSet<Product> getProductHashSet() {
@@ -42,25 +51,25 @@ public class Orders {
     @Override
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
-        Orders orders = (Orders) o;
-        return Objects.equals(id, orders.id) && Objects.equals(productHashSet, orders.productHashSet) && Objects.equals(status, orders.status);
+        Order orders = (Order) o;
+        return Objects.equals(id, orders.id) && Objects.equals(customerName, orders.customerName) && Objects.equals(productHashSet, orders.productHashSet) && Objects.equals(status, orders.status);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, productHashSet, status);
+        return Objects.hash(id, customerName, productHashSet, status);
     }
 
     @Override
     public String toString() {
         return "Orders{" +
                 "id='" + id + '\'' +
+                ", customerName='" + customerName + '\'' +
                 ", productHashSet=" + productHashSet +
                 ", status='" + status + '\'' +
                 '}';
     }
-
-//    String[] orders = {
+    //    String[] orders = {
 //            "order-101, new Product[]{products[0],"ORDERED", "SHIPPED";
 //
 //    }

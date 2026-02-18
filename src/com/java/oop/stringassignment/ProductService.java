@@ -1,34 +1,89 @@
 package com.java.oop.stringassignment;
 
 import java.util.HashSet;
+import java.util.Iterator;
 
 public class ProductService {
-    HashSet<Product> getProducts(String[] productsData) {
-//        splitting the product data
-        HashSet<Product> productHashSet = new HashSet<>();
-        for (String productData : productsData) {
+//    HashSet<Product> getProducts(String[] productsData) {
+////        splitting the product data
+//        HashSet<Product> productHashSet = new HashSet<>();
+//        for (String productData : productsData) {
+//            String[] split = productData.split(",");
+//            Product product = new Product();
+//            product.setId(split[0]);
+//            product.setName(split[1]);
+//            product.setMaxRetailPrice(Double.parseDouble(split[2]));
+//            product.setDiscountPercentage(Float.parseFloat(split[3]));
+//            productHashSet.add(product);
+//        }
+//        return productHashSet;
+//    }
+//
+//    public double calculateFinalPrice(Product product) {
+//        String finalPrice;
+//        return product.getMaxRetailPrice() - (product.getMaxRetailPrice() * product.getDiscountPercentage() / 100);
+//    }
+//
+//    public void displayProductDetails(Product product) {
+//
+//        System.out.println("Id : " + product.getId());
+//        System.out.println("name : " + product.getName());
+//        System.out.println("Max retail price : " + product.getMaxRetailPrice());
+//        System.out.println("Discount percentage : " + product.getDiscountPercentage());
+//        System.out.println("Final price : "+calculateFinalPrice(product));
+//    }
+private HashSet<Product> products;
+
+    public ProductService() {
+        this.products = new HashSet<>();
+    }
+
+    //methods
+    HashSet<Product> getProducts(String[] productsData){
+
+        //1.
+        for(String productData : productsData){
+            // System.out.println(productData);
             String[] split = productData.split(",");
             Product product = new Product();
             product.setId(split[0]);
             product.setName(split[1]);
             product.setMaxRetailPrice(Double.parseDouble(split[2]));
             product.setDiscountPercentage(Float.parseFloat(split[3]));
-            productHashSet.add(product);
+            products.add(product);
         }
-        return productHashSet;
-    }
+        return products;
 
-    public double calculateFinalPrice(Product product) {
-        String finalPrice;
+    }
+    double calculateFinalPrice(double maxRetailPrice, float discountPercentage){
+        return maxRetailPrice - (maxRetailPrice * discountPercentage / 100);
+    }
+    double calculateFinalPrice(Product product){
         return product.getMaxRetailPrice() - (product.getMaxRetailPrice() * product.getDiscountPercentage() / 100);
     }
 
-    public void displayProductDetails(Product product) {
-
+    void displayProductDetails(Product product){
+        System.out.println("=====================================");
         System.out.println("Id : " + product.getId());
-        System.out.println("name : " + product.getName());
-        System.out.println("Max retail price : " + product.getMaxRetailPrice());
-        System.out.println("Discount percentage : " + product.getDiscountPercentage());
-        System.out.println("Final price : "+calculateFinalPrice(product));
+        System.out.println("Name : " + product.getName());
+        System.out.println("Max Retail Price: " + product.getMaxRetailPrice());
+        System.out.println("Discount Percentage: " + product.getDiscountPercentage());
+        System.out.println("Final Price: " + calculateFinalPrice(product));
+    }
+
+
+
+    HashSet<Product> getProductsById(String[] ids){
+        HashSet<Product> productsById = new HashSet<>();
+        for(String id: ids){
+            Iterator<Product> iterator = products.iterator();
+            while (iterator.hasNext()){
+                Product product = iterator.next();
+                if(product.getId().equals(id))
+                    productsById.add(product);
+            }
+        }
+        return productsById;
+
     }
 }
