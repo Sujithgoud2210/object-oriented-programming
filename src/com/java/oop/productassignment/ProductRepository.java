@@ -1,7 +1,6 @@
 package com.java.oop.productassignment;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 
 public class ProductRepository {
     ArrayList<Product> productArrayList;
@@ -35,6 +34,17 @@ public class ProductRepository {
         return null;
     }
     public Product update(String id,Product product){
-
+        Product ids=getProductById(id);
+        if(ids==null){
+            return null;
+        }
+        else {
+            int index=productArrayList.indexOf(ids);
+            productArrayList.set(index,product);
+            return product;
+        }
+    }
+    public Product delete(String id){
+        return null;
     }
 }
