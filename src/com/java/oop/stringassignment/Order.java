@@ -69,8 +69,4 @@ public class Order {
                 ", status='" + status + '\'' +
                 '}';
     }
-    //    String[] orders = {
-//            "order-101, new Product[]{products[0],"ORDERED", "SHIPPED";
-//
-//    }
 }

@@ -61,7 +61,7 @@ public class OrderTest {
         }
         System.out.println("-----Get order by id : order - 103----");
 
-        //get By Id
+        //get By ID
         Order byId = orderRepository.getById("order-103");
         System.out.println(byId);
 
@@ -100,13 +100,10 @@ public class OrderTest {
             order.setId(split[0]);
             order.setCustomerName(split[1]);
             // System.out.println(split[3].split("|"));
-            order.setProductHashSet(productService.getProductsById(split[3].split("|")));
-            order.setStatus(split[4]);
+            order.setProductHashSet(productService.getProductsById(split[2].split("|")));
+            order.setStatus(split[3]);
             ordersSet.add(order);
 
         }
-
-
-
     }
 }
