@@ -130,57 +130,5 @@ public class ProductRepository {
     public Product getLeastPriceProduct() {
         Product min = productArrayList.get(0);
         for (Product product : productArrayList) {
-            if (product.getMaxRetailPrice() < min.getMaxRetailPrice()) {
-                min = product;
-            }
-        }
-        return min;
-    }
 
-    // Max Discount Product
-    public Product getMaxDiscountProduct() {
-        Product max = productArrayList.get(0);
-        for (Product product : productArrayList) {
-            if (product.getDiscountPercentage() > max.getDiscountPercentage()) {
-                max = product;
-            }
-        }
-        return max;
-    }
-
-    // Total Value
-    public double getTotalValue() {
-        double total = 0;
-        for (Product product : productArrayList) {
-            total += product.getMaxRetailPrice();
-        }
-        return total;
-    }
-
-    // Average Price
-    public double getAveragePrice() {
-        return getTotalValue() / productArrayList.size();
-    }
-
-    // Count Above Price
-    public int countProductsAbovePrice(double price) {
-        int count = 0;
-        for (Product product : productArrayList) {
-            if (product.getMaxRetailPrice() > price) {
-                count++;
-            }
-        }
-        return count;
-    }
-
-    // Discount Above
-    public ArrayList<Product> getProductsWithDiscountAbove(float discount) {
-        ArrayList<Product> result = new ArrayList<>();
-        for (Product product : productArrayList) {
-            if (product.getDiscountPercentage() > discount) {
-                result.add(product);
-            }
-        }
-        return result;
-    }
 }
