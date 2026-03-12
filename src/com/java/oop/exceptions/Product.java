@@ -10,6 +10,12 @@ public class Product {
     public Product() {
     }
 
+    public Product(String id, String name, float discountPercantage) {
+        this.id = id;
+        this.name = name;
+        this.discountPercantage = discountPercantage;
+    }
+
     public String getId() {
         return id;
     }
