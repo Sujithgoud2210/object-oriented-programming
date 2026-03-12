@@ -8,7 +8,7 @@ public class ExceptionsTest {
         int marks;
         int noOfSubjects;
         int averageMarks;
-        String username = null;
+        String username = "sujith";
         try {
             System.out.println("enter no of marks");
             marks = sc.nextInt();
@@ -19,10 +19,17 @@ public class ExceptionsTest {
             if(username.equals("sujith")){
                 System.out.println("username is matched");
             }
+            int[] arr=new int[-5];
 
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
+
         }
+        catch (NegativeArraySizeException e){
+            System.out.println("array out of bounds");
+        }
+
+//        catch (Exception e) {
+//            System.out.println(e.getMessage());
+//        }
 
     }
 }
