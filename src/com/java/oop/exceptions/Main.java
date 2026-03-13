@@ -9,23 +9,22 @@ public class Main {
             Product p1 = new Product("P101","Laptop",10);
             Product p2 = new Product("P102","Mobile",15.0f);
 
-            // Save products
-            controller.saveProduct(p1);
-            controller.saveProduct(p2);
+
+            controller.save(p1);
+            controller.save(p2);
 
             System.out.println("Products saved successfully");
 
-            // Get product
-            System.out.println(controller.getProduct("P101"));
+            System.out.println(controller.getProductById("P101"));
 
-            // Update product
+
             Product updatedProduct = new Product("P101","Gaming Laptop",20.0f);
-            controller.updateProduct("P101",updatedProduct);
+            controller.update("P101",updatedProduct);
 
             System.out.println("Product updated successfully");
 
-            // Delete product
-            controller.deleteProduct("P102");
+
+            controller.delete("P102");
 
             System.out.println("Product deleted successfully");
 

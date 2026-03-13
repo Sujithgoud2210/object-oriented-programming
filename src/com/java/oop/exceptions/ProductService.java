@@ -1,7 +1,5 @@
 package com.java.oop.exceptions;
 
-import java.util.Currency;
-
 public class ProductService {
     private final ProductRepository productRepository;
 
@@ -16,33 +14,33 @@ public class ProductService {
         return productRepository.save(product);
     }
 
-    public Product getProduct(String id) throws ProductExistsException {
+    public Product getProductById(String id) throws ProductNotFoundException {
         Product product = productRepository.getProductById(id);
 
         if (product == null) {
-            throw new ProductExistsException("Product not found" + id);
+            throw new ProductNotFoundException("Product not found" + id);
         }
 
         return product;
     }
 
-    public Product update(String id, Product product) throws ProductExistsException {
+    public Product update(String id, Product product) throws ProductNotFoundException {
 
         Product existingProduct = productRepository.getProductById(id);
 
         if (existingProduct == null) {
-            throw new ProductExistsException("Product not found to update with id: " + id);
+            throw new ProductNotFoundException("Product not found to update with id: " + id);
         }
 
         return productRepository.update(id, product);
     }
 
-    public void delete(String id) throws ProductExistsException {
+    public void delete(String id) throws ProductNotFoundException{
 
         Product product = productRepository.getProductById(id);
 
         if (product == null) {
-            throw new ProductExistsException("Product not found to delete with id: " + id);
+            throw new ProductNotFoundException("Product not found to delete with id: " + id);
         }
 
         productRepository.deleteProduct(id);
