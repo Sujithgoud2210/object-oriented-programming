@@ -11,11 +11,11 @@ public class ProductController {
         return productService.save(product);
     }
 
-    public Product getProductById(String id) throws ProductExistsException {
+    public Product getProductById(String id) throws  ProductNotFoundException {
         return productService.getProductById(id);
     }
 
-    public Product update(String id, Product product) throws ProductExistsException {
+    public Product update(String id, Product product) throws  ProductNotFoundException {
         return productService.update(id, product);
     }
 
